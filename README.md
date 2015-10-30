@@ -80,11 +80,6 @@ To compile this plugin, you need:
 
 ##Usage
 
-###VampirTrace
-
-To add a kernel event counter to your trace, you have to specify the environment variable
-`VT_PLUGIN_CNTR_METRICS`.
-
 ###Score-P
 
 To add a kernel event counter to your trace, you have to specify the environment
@@ -93,6 +88,11 @@ variables `SCOREP_METRIC_PLUGINS` and `SCOREP_METRIC_PC_PLUGIN`.
 Load the PC plugin library
 
     SCOREP_METRIC_PLUGINS="pcPlugin"
+
+###VampirTrace
+
+To add a kernel event counter to your trace, you have to specify the environment variable
+`VT_PLUGIN_CNTR_METRICS`.
 
 ###Common
 
@@ -130,11 +130,11 @@ with `pcPlugin_` for VampirTrace):
 
 E.g. (for Score-P):
 
-    export SCOREP_METRIC_PCPLUGIN="aperf:C6:C7"
+    export SCOREP_METRIC_PC_PLUGIN="aperf:C6:C7"
 
 or
 
-    export SCOREP_METRIC_PCPLUGIN="*"
+    export SCOREP_METRIC_PC_PLUGIN="*"
 
 or (for VampirTrace):
 
