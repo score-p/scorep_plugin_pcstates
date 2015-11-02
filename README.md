@@ -28,21 +28,21 @@ To compile this plugin, you need:
 
 * For `SCOREP`, `VT`, `X86A`, `MSR` as `<PREFIX>`
 
-    * `D<PREFIX>_DIR`
+    * `-D<PREFIX>_DIR`
 
         A folder that holds a lib and include folder for the specific software (e.g., Score-P).
 
-    * `D<PREFIX>_INC`
+    * `-D<PREFIX>_INC`
 
         The include folder that holds the header for a specific software (e.g., Score-P).
 
-    * `D<PREFIX>_LIB`
+    * `-D<PREFIX>_LIB`
 
         The library folder that holds the libraries for a specific software (e.g., Score-P).
 
 * For `X86A`, `MSR` as `<PREFIX>`
 
-    * `D<PREFIX>_STATIC` (default=ON)
+    * `-D<PREFIX>_STATIC` (default=ON)
 
         Whether to include the static version of this library (options=OFF/ON).
 
@@ -59,11 +59,11 @@ To compile this plugin, you need:
 
     Example for a prebuild static linked `libmsr` which is not in the default path:
 
-        cmake .. -DMSR_INC=~/x86_energy -DMSR_LIB=~/x86_energy/build -DMSR_STATIC=ON -DMSR_BUILD=OFF
+        cmake .. -DMSR_INC=$HOME/x86_energy -DMSR_LIB=$HOME/x86_energy/build -DMSR_STATIC=ON -DMSR_BUILD=OFF
 
     Example for building `msr` library and linking it statically:
 
-        cmake .. -DMSR_DIR=~/x86_energy
+        cmake .. -DMSR_DIR=$HOME/x86_energy
 
 3. Invoking make
 
@@ -75,7 +75,7 @@ To compile this plugin, you need:
 
 > *Note:*
 >
-> If `libmsr`/`x86_adapt` is linked dynamic then the location of `libmsr`/`x86_adapt` has to be in
+> If `libmsr`/`x86_adapt` is linked dynamically then the location of `libmsr`/`x86_adapt` has to be in
 > the `LD_LIBRARY_PATH` as well.
 
 ##Usage
@@ -83,11 +83,11 @@ To compile this plugin, you need:
 ###Score-P
 
 To add a kernel event counter to your trace, you have to specify the environment
-variables `SCOREP_METRIC_PLUGINS` and `SCOREP_METRIC_PC_PLUGIN`.
+variables `SCOREP_METRIC_PLUGINS` and `SCOREP_METRIC_PCSTATES_PLUGIN`.
 
 Load the PC plugin library
 
-    SCOREP_METRIC_PLUGINS="pcPlugin"
+    SCOREP_METRIC_PLUGINS="pcstates"
 
 ###VampirTrace
 
@@ -96,9 +96,9 @@ To add a kernel event counter to your trace, you have to specify the environment
 
 ###Common
 
-`VT_PLUGIN_CNTR_METRICS`/`SCOREP_METRIC_PC_PLUGIN` specifies the software events that shall be
+`VT_PLUGIN_CNTR_METRICS`/`SCOREP_METRIC_PCSTATES_PLUGIN` specifies the software events that shall be
 recorded when tracing an application. You can add the following metrics (they have to be prefixed
-with `pcPlugin_` for VampirTrace):
+with `pcstates_` for VampirTrace):
 
 * `aperf`
 
@@ -130,19 +130,19 @@ with `pcPlugin_` for VampirTrace):
 
 E.g. (for Score-P):
 
-    export SCOREP_METRIC_PC_PLUGIN="aperf:C6:C7"
+    export SCOREP_METRIC_PCSTATES_PLUGIN="aperf:C6:C7"
 
 or
 
-    export SCOREP_METRIC_PC_PLUGIN="*"
+    export SCOREP_METRIC_PCSTATES_PLUGIN="*"
 
 or (for VampirTrace):
 
-    export VT_PLUGIN_CNTR_METRIC="pcPlugin_aperf:pcPlugin_C6:pcPlugin_C7"
+    export VT_PLUGIN_CNTR_METRIC="pcstates_aperf:pcstates_C6:pcstates_C7"
 
 or
 
-    export VT_PLUGIN_CNTR_METRIC="pcPlugin_*"
+    export VT_PLUGIN_CNTR_METRIC="pcstates_*"
 
 > *Note:*
 

@@ -31,6 +31,7 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #include <pthread.h>
 #include <sched.h>
 #include <fcntl.h>
+#include <stdbool.h>
 
 #ifdef X86_ADAPT
     #include <x86_adapt.h>
