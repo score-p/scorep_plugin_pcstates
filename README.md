@@ -46,6 +46,10 @@ To compile this plugin, you need:
 
         Whether to include the static version of this library (options=OFF/ON).
 
+* `BACKEND_SCOREP` (default on)
+
+    Build for Score-P (alternative: build for VampirTrace).
+
 ###Building
 
 1. Create build directory
@@ -75,19 +79,19 @@ To compile this plugin, you need:
 
 > *Note:*
 >
-> If `libmsr`/`x86_adapt` is linked dynamically then the location of `libmsr`/`x86_adapt` has to be in
-> the `LD_LIBRARY_PATH` as well.
+> If `libmsr`/`x86_adapt` is linked dynamically then the location of `libmsr`/`x86_adapt` has to be
+> in the `LD_LIBRARY_PATH` as well.
 
 ##Usage
 
 ###Score-P
 
-To add a kernel event counter to your trace, you have to specify the environment
-variables `SCOREP_METRIC_PLUGINS` and `SCOREP_METRIC_PCSTATES_PLUGIN`.
+To add a kernel event counter to your trace, you have to specify the environment variables
+`SCOREP_METRIC_PLUGINS` and `SCOREP_METRIC_PCSTATES_PLUGIN`.
 
 Load the PC plugin library
 
-    SCOREP_METRIC_PLUGINS="pcstates"
+    SCOREP_METRIC_PLUGINS="pcstates_plugin"
 
 ###VampirTrace
 
@@ -96,7 +100,7 @@ To add a kernel event counter to your trace, you have to specify the environment
 
 ###Common
 
-`VT_PLUGIN_CNTR_METRICS`/`SCOREP_METRIC_PCSTATES_PLUGIN` specifies the software events that shall be
+`SCOREP_METRIC_PCSTATES_PLUGIN`/`VT_PLUGIN_CNTR_METRICS` specifies the software events that shall be
 recorded when tracing an application. You can add the following metrics (they have to be prefixed
 with `pcstates_` for VampirTrace):
 
