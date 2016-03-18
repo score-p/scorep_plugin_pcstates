@@ -1120,7 +1120,7 @@ vt_plugin_cntr_info get_info()
 /**
  * This function get called to give some informations about the plugin to scorep
  */
-SCOREP_METRIC_PLUGIN_ENTRY( pcPlugin )
+SCOREP_METRIC_PLUGIN_ENTRY( pcstates_plugin )
 {
     /* Initialize info data (with zero) */
     SCOREP_Metric_Plugin_Info info;
