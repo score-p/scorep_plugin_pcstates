@@ -1,8 +1,8 @@
-#P- and C-State MSR Plugin for Score-P
+# P- and C-State MSR Plugin for Score-P
 
-##Compilation and Installation
+## Compilation and Installation
 
-###Prerequisites
+### Prerequisites
 
 To compile this plugin, you need:
 
@@ -24,7 +24,7 @@ To compile this plugin, you need:
     The kernel module `x86_adapt_driver` should be active and and should have reading access to
     `/dev/x86_adapt/cpu/*`.
 
-###Build Options
+### Build Options
 
 * For `SCOREP`, `VT`, `X86A`, `MSR` as `<PREFIX>`
 
@@ -50,7 +50,7 @@ To compile this plugin, you need:
 
     Build for Score-P (alternative: build for VampirTrace).
 
-###Building
+### Building
 
 1. Create build directory
 
@@ -82,9 +82,9 @@ To compile this plugin, you need:
 > If `libmsr`/`x86_adapt` is linked dynamically then the location of `libmsr`/`x86_adapt` has to be
 > in the `LD_LIBRARY_PATH` as well.
 
-##Usage
+## Usage
 
-###Score-P
+### Score-P
 
 To add a kernel event counter to your trace, you have to specify the environment variables
 `SCOREP_METRIC_PLUGINS` and `SCOREP_METRIC_PCSTATES_PLUGIN`.
@@ -93,12 +93,12 @@ Load the PC plugin library
 
     SCOREP_METRIC_PLUGINS="pcstates_plugin"
 
-###VampirTrace
+### VampirTrace
 
 To add a kernel event counter to your trace, you have to specify the environment variable
 `VT_PLUGIN_CNTR_METRICS`.
 
-###Common
+### Common
 
 `SCOREP_METRIC_PCSTATES_PLUGIN`/`VT_PLUGIN_CNTR_METRICS` specifies the software events that shall be
 recorded when tracing an application. You can add the following metrics (they have to be prefixed
@@ -110,7 +110,7 @@ with `pcstates_` for VampirTrace):
 
 * `mperf`
 
-    Collect reference frequency of the cpu core.
+    Collect reference frequency of the CPU core.
 
 * `C[3|6|7]`
 
@@ -157,7 +157,7 @@ or
 > is kept open to read the msr registers. If a task is not pinned, this file descriptor is opened and
 > closed for every read.
 
-###If anything fails
+### If anything fails
 
 1. Check whether the plugin library can be loaded from the `LD_LIBRARY_PATH`.
 
@@ -165,8 +165,7 @@ or
 
 3. Write a mail to the author.
 
-##Authors
+## Authors
 
 * Robert Schoene (robert.schoene at tu-dresden dot de)
-
 * Michael Werner (michael.werner3 at tu-dresden dot de)
